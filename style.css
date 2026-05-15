@@ -18,13 +18,13 @@ body {
 body::before {
   content: "";
   position: absolute;
-  width: 200%;
-  height: 200%;
+  width: 100%;
+  height: 100%;
   background-image:
     linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
   background-size: 500px 500px;
-  transform: perspective(150px) rotateX(30deg);
+  transform: perspective(600px) rotateX(60deg);
   animation: grid-move 20s linear infinite;
   z-index: -1;
   opacity: 0.5;
@@ -32,10 +32,10 @@ body::before {
 
 @keyframes grid-move {
   0% {
-    transform: perspective(150px) rotateX(10deg) translateY(0);
+    transform: perspective(600px) rotateX(60deg) translateY(0);
   }
   100% {
-    transform: perspective(150px) rotateX(10deg) translateY(10px);
+    transform: perspective(600px) rotateX(60deg) translateY(60px);
   }
 }
 
@@ -48,7 +48,7 @@ body::before {
 nav {
   display: flex;
   justify-content: space-between;
-  padding-bottom: 50px;
+  padding-bottom: 1080px;
 }
 
 .logo {

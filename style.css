@@ -1,54 +1,14 @@
-:root {
-  --neon-cyan: #00ffff;
-  --neon-purple: #bd00ff;
-  --bg-dark: #000000;
-  --terminal-text: #f0e68c; /* Golden yellow */
-}
-
-body {
-  background-color: var(--bg-dark);
-  color: white;
-  font-family: "Courier New", Courier, monospace;
-  margin: 0;
-  overflow: hidden;
-  height: 100vh;
-}
-
-/* Animated Background Grid */
-body::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-image:
-    linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
-  background-size: 500px 500px;
-  transform: perspective(600px) rotateX(60deg);
-  animation: grid-move 20s linear infinite;
-  z-index: -1;
-  opacity: 0.5;
-}
-
-@keyframes grid-move {
-  0% {
-    transform: perspective(600px) rotateX(60deg) translateY(0);
-  }
-  100% {
-    transform: perspective(600px) rotateX(60deg) translateY(60px);
-  }
-}
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: 1080px;
+body {
+  background: #000;
+  color: #fff;
+  font-family: sans-serif;
+  padding: 20px;
 }
 
 .logo {

@@ -43,3 +43,15 @@ function swap(imgSrc) {
     main.style.opacity = 1;
   }, 50);
 }
+function closeError() {
+  const intro = document.getElementById("intro-screen");
+  const shop = document.getElementById("main-shop");
+
+  intro.style.transform = "translateY(-100%)";
+
+  shop.style.opacity = "1";
+
+  setTimeout(() => {
+    intro.remove();
+  }, 600);
+}

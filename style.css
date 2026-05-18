@@ -11,6 +11,291 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent; /* Fixes blue flash on mobile tap */
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+}
+
+/* Intro Glitch Screen for Mobile */
+#intro-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  font-family: monospace;
+  transition: transform 0.5s ease-in-out;
+}
+.glitch-wrapper {
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+}
+.glitch-text {
+  color: var(--primary);
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+.sub-text {
+  color: #666;
+  margin-bottom: 40px;
+  font-size: 0.85rem;
+}
+.bypass-btn {
+  background: none;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 14px 28px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  width: 85%;
+  max-width: 300px;
+}
+
+/* Mobile Shop App Setup */
+#main-shop {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(5, 5, 5, 0.8);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+}
+.logo {
+  font-size: 1.3rem;
+  font-weight: 900;
+}
+.logo span {
+  color: var(--accent);
+}
+
+/* Social Icons Row */
+.social-links {
+  display: flex;
+  gap: 10px;
+}
+.social-icon {
+  width: 35px;
+  height: 35px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+/* Mobile Stacked Layout (No Flex Side-by-Side) */
+.shop-layout {
+  display: block;
+  padding: 15px;
+  width: 100%;
+}
+
+/* Search and Brand Sidebar (Sits up top) */
+.brand-sidebar {
+  width: 100%;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+.brand-sidebar h3 {
+  font-size: 0.75rem;
+  color: #555;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+/* Mobile Touch Friendly Inputs */
+#brandSearch {
+  width: 100%;
+  padding: 14px;
+  background: #111;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: #fff;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+#brandSearch:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* Mobile Brand List (Horizontal Scroll Option or List) */
+#brand-list-container {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto; /* Allows users to swipe left/right across brands with their thumb */
+  padding-bottom: 10px;
+  scrollbar-width: none; /* Hides ugly scrollbar on Firefox */
+}
+#brand-list-container::-webkit-scrollbar {
+  display: none;
+} /* Hides scrollbar on Safari/Chrome */
+
+.brand-item {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px; /* Pill shape design */
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: #aaa;
+  white-space: nowrap; /* Prevents text dropping to next line */
+}
+.brand-item.active {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(0, 255, 204, 0.05);
+}
+.brand-logo-style {
+  margin-right: 8px;
+  font-size: 0.9rem;
+}
+
+/* Mobile Display Card Area */
+.main-content {
+  width: 100%;
+}
+.product-display {
+  display: block;
+  width: 100%;
+}
+
+/* Photo Panel Config */
+.photo-area {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.main-photo-box {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.main-display {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: opacity 0.15s ease-in-out;
+}
+
+/* Thumbnail Slider Row below main pic */
+.thumb-strip {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  overflow-x: auto;
+  padding-bottom: 5px;
+}
+.thumb-strip img {
+  width: 65px;
+  height: 65px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+.thumb-strip img.active {
+  opacity: 1;
+  border-color: var(--accent);
+}
+
+/* Specs Text List Block */
+.spec-list {
+  width: 100%;
+  padding-top: 5px;
+}
+#bike-title {
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin-bottom: 15px;
+}
+.spec-list h3 {
+  font-size: 0.75rem;
+  color: #555;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+.spec-list ul {
+  list-style: none;
+  margin-bottom: 15px;
+}
+.spec-list li {
+  margin-bottom: 8px;
+  color: #ccc;
+  font-size: 0.9rem;
+}
+.spec-label {
+  color: #666;
+  font-weight: bold;
+}
+.spec-divider {
+  border: none;
+  border-top: 1px dashed #222;
+  margin: 20px 0;
+}
+
+/* Large Touch Target WhatsApp Button */
+.chat-buy-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 16px;
+  background: var(--accent);
+  color: #000;
+  text-decoration: none;
+  font-weight: 900;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  margin-top: 10px;
+  box-shadow: 0 4px 12px rgba(0, 255, 204, 0.2);
+}
+
+:root {
+  --primary: #ff3e3e;
+  --accent: #00ffcc;
+  --bg: #050505;
+  --card: #0f0f11;
+  --border: #1f1f24;
+  --text: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 body {
   background: var(--bg);
@@ -504,50 +789,5 @@ button {
   .shop-layout {
     gap: 20px;
     padding: 20px;
-  }
-}
-
-/* ==========================================================================
-   MEDIA QUERIES: BREAKPOINTS FOR SMARTPHONES (iPhone, Android, Mobile)
-   ========================================================================== */
-@media (max-width: 768px) {
-  /* Changes layout from horizontal side-by-side to vertical stacking */
-  .shop-layout {
-    flex-direction: column;
-    padding: 15px;
-  }
-
-  /* Sidebar takes full screen width on phones, sitting on top */
-  .brand-sidebar {
-    width: 100%;
-    max-width: 100%;
-    border-right: none;
-    border-bottom: 1px solid #111; /* Moves line separator to the bottom */
-    padding-right: 0;
-    padding-bottom: 20px;
-  }
-
-  .main-content {
-    width: 100%;
-  }
-
-  /* Stacks the photo over the specifications list on phone screens */
-  .product-display {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  /* Makes the main motorcycle photo shorter so it doesn't flood the mobile view */
-  .main-display {
-    height: 260px;
-  }
-
-  /* Makes buttons easier to touch with thumbs on phone touchscreens */
-  .brand-item {
-    padding: 16px;
-  }
-
-  .main-nav {
-    padding: 15px;
   }
 }

@@ -1,3 +1,48 @@
+function searchBrandsAll() {
+  // 1. Get what the customer is typing right now
+  const searchInput = document
+    .getElementById("brandSearch")
+    .value.toLowerCase()
+    .trim();
+
+  // 2. Define our searchable motorcycle keywords mapping
+  const brandMapping = {
+    ducati: "ASUS",
+    yamaha: "sus",
+    honda: "honda",
+    bmw: "bmw",
+    motorrad: "SUS",
+    all: "all",
+  };
+
+  // 3. Check if what they typed matches one of our motorcycle keys
+  if (brandMapping[searchInput]) {
+    const targetBrandKey = brandMapping[searchInput];
+    const correspondingButton = document.getElementById(
+      `btn-${targetBrandKey}`,
+    );
+
+    // Directly trigger our global selection engine to swap the picture & specs!
+    if (correspondingButton) {
+      selectBrand(targetBrandKey, correspondingButton);
+    }
+  }
+
+  // 4. Standard Sidebar Filtering: Keep list items clean while typing
+  const container = document.getElementById("brand-list-container");
+  const items = container.getElementsByClassName("brand-item");
+
+  for (let i = 0; i < items.length; i++) {
+    const text = items[i].textContent || items[i].innerText;
+    if (text.toLowerCase().includes(searchInput)) {
+      items[i].style.display = ""; // Keep button visible
+    } else {
+      items[i].style.display = "none"; // Hide button if user types something else
+    }
+  }
+}
+
+// h
 function toggleSocials() {
   document.getElementById("socialLinks").classList.toggle("show");
 }
@@ -18,7 +63,7 @@ function buy() {
   alert("Added to your garage!");
 }
 function showCart() {
-  alert("Your garage is empty.");
+  alert("Your garage is Sempty.");
 }
 function buy() {
   window.open("https://t.me/yourusername", "_blank");

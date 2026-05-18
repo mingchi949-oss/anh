@@ -1,48 +1,172 @@
+:root {
+  --primary: #ff3e3e;
+  --accent: #00ffcc;
+  --bg: #050505;
+  --card: #0f0f11;
+  --border: #1f1f24;
+  --text: #ffffff;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+}
+/* 1. Intro Screen Styles */
+#intro-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   background: #000;
-  color: #fff;
-  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  font-family: monospace;
+  transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.glitch-wrapper {
+  text-align: center;
   padding: 20px;
 }
-
-.logo {
+.glitch-text {
+  color: var(--primary);
+  font-size: 2.2rem;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+}
+.sub-text {
+  color: #666;
+  margin-bottom: 30px;
+  font-size: 0.9rem;
+}
+.bypass-btn {
+  background: none;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 12px 24px;
+  font-size: 1rem;
   font-weight: bold;
-  letter-spacing: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.bypass-btn:hover {
+  background: var(--accent);
+  color: #000;
+  box-shadow: 0 0 20px var(--accent);
 }
 
-.dropdown {
-  position: relative;
-  display: inline-block;
+/* 2. Main Shop Layout */
+#main-shop {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  border-bottom: 1px solid #111;
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+.logo span {
+  color: var(--accent);
 }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  right: 0;
-  background-color: #1a1a1a;
-  min-width: 160px;
-  border: 1px solid #333;
-  z-index: 1;
+/* Social Icons Layout */
+.social-links {
+  display: flex;
+  gap: 12px;
 }
-
-/* Links inside the dropdown */
-.dropdown-content a {
-  color: white;
-  padding: 12px 16px;
+.social-icon {
+  width: 38px;
+  height: 38px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
   text-decoration: none;
-  display: block;
-  font-size: 0.8rem;
+  transition: 0.3s;
+  font-size: 0.9rem;
+}
+.fb:hover {
+  background: #1877f2;
+  border-color: #1877f2;
+  box-shadow: 0 0 10px #1877f2;
+}
+.tg:hover {
+  background: #229ed9;
+  border-color: #229ed9;
+  box-shadow: 0 0 10px #229ed9;
+}
+.ig:hover {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366);
+  border-color: transparent;
+  box-shadow: 0 0 10px #dc2743;
 }
 
-.dropdown-content a:hover {
-  background-color: #333;
-  color: #00ffcc; /* Tech Teal */
+/* Sidebar & Content Layout Grid */
+.shop-layout {
+  display: flex;
+  gap: 40px;
+  padding: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.brand-sidebar {
+  width: 260px;
+  border-right: 1px solid #111;
+  padding-right: 20px;
+  flex-shrink: 0;
+}
+.brand-sidebar h3 {
+  font-size: 0.8rem;
+  color: #555;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+/* Search Input */
+#brandSearch {
+  width: 100%;
+  padding: 12px;
+  background: #111;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: #fff;
+  margin-bottom: 25px;
+  transition: 0.3s;
+}
+#brandSearch:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+@media (max-width: 850px) {
+  .shop-layout {
+    flex-direction: column;
+  }
+  .brand-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #111;
+  }
 }
 
 /* Show class for JS */

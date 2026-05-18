@@ -432,3 +432,122 @@ button {
   box-shadow: 0 0 20px #00ffcc;
   transform: scale(1.05);
 }
+/* ==========================================================================
+   GLOBAL RESPONSIVE GRID LAYOUT (For PC, Laptops, Tablets, and Phones)
+   ========================================================================== */
+
+.shop-layout {
+  display: flex;
+  gap: 30px;
+  padding: 30px;
+  max-width: 1400px; /* Limits the website width on massive PC monitors */
+  margin: 0 auto; /* Centers the website content on the screen */
+  width: 100%;
+}
+
+/* 1. SIDEBAR SIZE CONTROLS */
+.brand-sidebar {
+  width: 20%; /* Takes up 20% of the screen width on PC/Laptop */
+  min-width: 240px; /* Prevents it from getting too squished */
+  max-width: 300px;
+  border-right: 1px solid #111;
+  padding-right: 20px;
+  flex-shrink: 0;
+}
+
+/* 2. MAIN DISPLAY CONTENT AREA */
+.main-content {
+  width: 80%; /* Takes up the remaining 80% of the screen */
+  flex-grow: 1;
+}
+
+.product-display {
+  display: flex;
+  gap: 30px;
+  width: 100%;
+}
+
+/* 3. PHOTO PANEL & MAIN display SIZE FIXED */
+.photo-area {
+  flex: 1.2;
+  min-width: 0; /* Fixes unexpected flexbox image overflow bugs */
+}
+
+.main-photo-box {
+  width: 100%;
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.main-display {
+  width: 100%;
+  height: 450px; /* Perfect height for Laptop/PC view */
+  object-fit: cover; /* Keeps image sharp without stretching it weirdly */
+  transition: opacity 0.2s ease-in-out;
+}
+
+/* 4. TECH SPECS PANEL FIXED */
+.spec-list {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* ==========================================================================
+   MEDIA QUERIES: BREAKPOINTS FOR SMALLER LAPTOPS & TABLETS
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .main-display {
+    height: 350px; /* Makes the bike photo a bit smaller on laptops */
+  }
+  .shop-layout {
+    gap: 20px;
+    padding: 20px;
+  }
+}
+
+/* ==========================================================================
+   MEDIA QUERIES: BREAKPOINTS FOR SMARTPHONES (iPhone, Android, Mobile)
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* Changes layout from horizontal side-by-side to vertical stacking */
+  .shop-layout {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  /* Sidebar takes full screen width on phones, sitting on top */
+  .brand-sidebar {
+    width: 100%;
+    max-width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #111; /* Moves line separator to the bottom */
+    padding-right: 0;
+    padding-bottom: 20px;
+  }
+
+  .main-content {
+    width: 100%;
+  }
+
+  /* Stacks the photo over the specifications list on phone screens */
+  .product-display {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* Makes the main motorcycle photo shorter so it doesn't flood the mobile view */
+  .main-display {
+    height: 260px;
+  }
+
+  /* Makes buttons easier to touch with thumbs on phone touchscreens */
+  .brand-item {
+    padding: 16px;
+  }
+
+  .main-nav {
+    padding: 15px;
+  }
+}

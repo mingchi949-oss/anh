@@ -40,7 +40,40 @@ function searchBrandsAll() {
       items[i].style.display = "none"; // Hide button if user types something else
     }
   }
+
+  // 5. Product Gallery Filtering: Hide/Show items based on search input
+  const products = document.getElementsByClassName("moto-gallery");
+  for (let i = 0; i < products.length; i++) {
+    const title = products[i].querySelector("h1");
+    if (title) {
+      const text = title.textContent || title.innerText;
+      products[i].style.display = text.toLowerCase().includes(searchInput)
+        ? ""
+        : "none";
+    }
+  }
 }
+items[i].style.display = "none"; // Hide button if user types something else
+
+// 5. Product Gallery Filtering: Hide/Show items based on search input
+const products = document.getElementsByClassName("moto-gallery");
+for (let i = 0; i < products.length; i++) {
+  const title = products[i].querySelector("h1");
+  if (title) {
+    const text = title.textContent || title.innerText;
+    products[i].style.display = text.toLowerCase().includes(searchInput)
+      ? ""
+      : "none";
+  }
+}
+
+// Helper function to set the search input and trigger the filter
+function setSearchAndFilter(brand) {
+  document.getElementById("brandSearch").value = brand;
+  searchBrandsAll();
+}
+
+// h
 
 // h
 function toggleSocials() {

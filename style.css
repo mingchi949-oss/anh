@@ -1,9 +1,9 @@
 :root {
   --primary: #ff3e3e;
   --accent: #00ffcc;
-  --bg: #050505;
+  --bg: #e710cd;
   --card: #0f0f11;
-  --border: #1f1f24;
+  --border: #bb5ff0;
   --text: #ffffff;
 }
 
@@ -84,7 +84,9 @@ body {
 .logo span {
   color: var(--accent);
 }
-
+#fo {
+  align-items: right;
+}
 /* Social Icons Layout */
 .social-links {
   display: flex;
@@ -168,7 +170,34 @@ body {
     border-bottom: 1px solid #111;
   }
 }
+/* 1. Make the image container the reference point */
+.img-container {
+  position: relative;
+  display: inline-block;
+  width: 100%; /* Adjust based on your design */
+}
 
+/* 2. Style the badge */
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #ff3838; /* Vibrant red/orange hot color */
+  color: white;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  letter-spacing: 1px;
+  z-index: 10;
+}
+
+/* Optional: Flame icon effect using CSS if you want it spicy */
+.hot-sale::before {
+  content: "🔥 ";
+}
 /* Show class for JS */
 .show {
   display: block;
@@ -312,7 +341,7 @@ button {
 }
 
 body {
-  background: #000;
+  background: #000000;
   color: #fff;
   font-family: sans-serif;
   padding: 20px;

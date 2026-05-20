@@ -125,11 +125,11 @@ body {
   display: flex;
   gap: 40px;
   padding: 40px;
-  max-width: 600px;
+  max-width: 590px;
   margin: 0 auto;
 }
 .brand-sidebar {
-  width: 650px;
+  width: 700px;
   border-right: 1px solid #111;
   padding-right: 20px;
   flex-shrink: 0;

@@ -2,9 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Website</title>
+    <title>MinG developmant test</title>
     <link rel="stylesheet" href="./style.css" />
-       <link
+    <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap"
       rel="stylesheet"
     />
@@ -14,13 +14,25 @@
     />
   </head>
   <body>
-    
     <div id="main-shop">
       <nav class="main-nav">
-        <div class="logo">MING<span>KIPCBUILD</span></div>
+        <div class="logo">DEVELOP<span>BYMING</span></div>
+        <div class="logo">WEL<span>COME</span></div>
         <div class="social-links">
-          <a href="https://facebook.com" target="_blank" class="social-icon fb"
-            ><i class="fab fa-facebook-f"></i
+          <button
+            onclick="showCart()"
+            class="social-icon"
+            style="
+              width: auto;
+              padding: 0 15px;
+              border-radius: 20px;
+              cursor: pointer;
+            "
+          >
+            <i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span>
+          </button>
+          <a href="https://facebook.com" target="_blank" class="social-icon fb">
+            <i class="fab fa-facebook-f"></i
           ></a>
           <a href="https://t.me" target="_blank" class="social-icon tg"
             ><i class="fab fa-telegram-plane"></i
@@ -28,23 +40,66 @@
           <a href="https://instagram.com" target="_blank" class="social-icon ig"
             ><i class="fab fa-instagram"></i
           ></a>
+          <a
+            href="https://www.tiktok.com"
+            target="_blank"
+            class="social-icon tt"
+          >
+            <i class="fab fa-tiktok"></i>
+          </a>
         </div>
       </nav>
       <div class="shop-layout">
         <aside class="brand-sidebar">
-          <h3>Search Brands</h3>
-          <input
-            type="text"
-            id="brandSearch"
-            onkeyup="searchBrandsAll()"
-            placeholder="Search brand (e.g. ASUS...)"
-          />
+          <h3>Search</h3>
+          <div style="position: relative">
+            <input
+              type="text"
+              id="brandSearch"
+              onkeyup="searchBrandsAll()"
+              placeholder="Search (e.g. Matcha...)"
+              style="padding-right: 35px"
+            />
+            <span
+              id="clear-search-btn"
+              onclick="clearSearch()"
+              style="
+                position: absolute;
+                right: 10px;
+                top: 8px;
+                cursor: pointer;
+                color: #888;
+                font-size: 1.5rem;
+                display: none;
+                user-select: none;
+              "
+              >&times;</span
+            >
+          </div>
           <div id="brand-list-container">
             <!--search-->
-     
-            <div class="brand-item" id="btn-ASUS" onclick="setSearchAndFilter('ASUS')">ASUS</div>
-            <div class="brand-item" id="btn-sus" onclick="setSearchAndFilter('ROG Strix')">ROG Strix</div>
-            <div class="brand-item" id="btn-lo" onclick="setSearchAndFilter('lo')">lo</div>
+
+            <div
+              class="brand-item"
+              id="btn-Matcha"
+              onclick="setSearchAndFilter('Matcha')"
+            >
+              Matcha
+            </div>
+            <div
+              class="brand-item"
+              id="btn-Coffee"
+              onclick="setSearchAndFilter('Coffee')"
+            >
+              Coffee
+            </div>
+            <div
+              class="brand-item"
+              id="btn-Tea"
+              onclick="setSearchAndFilter('Tea')"
+            >
+              Tea
+            </div>
           </div>
         </aside>
       </div>
@@ -53,106 +108,136 @@
     <!--here-->
     <main>
       <div class="moto-gallery product-card">
-       <div >
-            <img src="https://i.pinimg.com/736x/c0/a3/38/c0a3387519d99acca698ba1cce069de7.jpg" alt="Moto">
-       
+        <!-- Added class "img-container" here -->
+        <div class="img-container">
+          <span class="badge hot-sale">HOT</span>
+          <img src="./Matcha.jpg" alt="Moto" />
         </div>
 
-        <h1> ROG Strix Ga15 Gaming & Entertainment Desktop PC (amd Ryzen 7 5800x 8-Core, 16gb Ram, 1TB PCIe Ssd, Nvidia RTX 3070, Wifi, Bluetooth, 1xUSB 3.0, 3xHDMI, 3 Display Port (dp), Win 10 Home), Size:19.5 IN, Black</h1>
-        <p>$899.00</p>
+        <h1>Matcha Latte</h1>
+        <p>$1.25</p>
 
-        <a
-          href="https://wa.me/85512345678"
-          target="_blank"
-          class="buy-btn"
-          style="text-decoration: none; display: inline-block"
-        >
-          CHAT TO BUY
-        </a>
+        <button onclick="addToOrder('Matcha Latte', 1.25)" class="buy-btn">
+          ORDER
+        </button>
+      </div>
+
+      <div class="moto-gallery product-card">
+        <div>
+          <img src="./matcha stt.jpg" alt="Moto" />
+        </div>
+
+        <h1>Strawberry Matcha</h1>
+        <p>$2.50</p>
+
+        <button onclick="addToOrder('Strawberry Matcha', 2.5)" class="buy-btn">
+          ORDER
+        </button>
       </div>
       <div class="moto-gallery product-card">
-       <div >
-            <img src="https://i.pinimg.com/736x/c0/a3/38/c0a3387519d99acca698ba1cce069de7.jpg" alt="Moto">
-       
+        <!-- Added class "img-container" here -->
+        <div class="img-container">
+          <span class="badge hot-sale">HOT</span>
+          <img src="./ice latte.jpg" alt="Moto" />
         </div>
 
-        <h1>Asus ROG Strix Ga15 Gaming & Entertainment Desktop PC (amd Ryzen 7 5800x 8-Core, 16gb Ram, 1TB PCIe Ssd, Nvidia RTX 3070, Wifi, Bluetooth, 1xUSB 3.0, 3xHDMI, 3 Display Port (dp), Win 10 Home), Size:19.5 IN, Black</h1>
-        <p>$899.00</p>
+        <h1>Ice latte Coffee</h1>
+        <p>$1.25</p>
 
-        <a
-          href="https://wa.me/85512345678"
-          target="_blank"
-          class="buy-btn"
-          style="text-decoration: none; display: inline-block"
-        >
-          CHAT TO BUY
-        </a>
+        <button onclick="addToOrder('Ice latte Coffee', 1.25)" class="buy-btn">
+          ORDER
+        </button>
       </div>
-         <div class="moto-gallery product-card">
-       <div >
-            <img src="https://i.pinimg.com/736x/c0/a3/38/c0a3387519d99acca698ba1cce069de7.jpg" alt="Moto">
-       
+      <div class="moto-gallery product-card">
+        <div>
+          <img src="./americano coffee.jpg" alt="Moto" />
         </div>
 
-        <h1>sus ROG Strix Ga15 Gaming & Entertainment Desktop PC (amd Ryzen 7 5800x 8-Core, 16gb Ram, 1TB PCIe Ssd, Nvidia RTX 3070, Wifi, Bluetooth, 1xUSB 3.0, 3xHDMI, 3 Display Port (dp), Win 10 Home), Size:19.5 IN, Black</h1>
-        <p>$899.00</p>
+        <h1>Ice Americano coffee</h1>
+        <p>$1.25</p>
 
-        <a
-          href="https://wa.me/85512345678"
-          target="_blank"
+        <button
+          onclick="addToOrder('Ice Americano coffee', 1.25)"
           class="buy-btn"
-          style="text-decoration: none; display: inline-block"
         >
-          CHAT TO BUY
-        </a>
+          ORDER
+        </button>
       </div>
-
-
-     <div class="moto-gallery product-card">
-       <div >
-            <img src="https://i.pinimg.com/736x/c0/a3/38/c0a3387519d99acca698ba1cce069de7.jpg" alt="Moto">
-       
+      <div class="moto-gallery product-card">
+        <div>
+          <img src="./lemom tea.jpg" alt="Moto" />
         </div>
 
-        <h1>lo ROG Strix Ga15 Gaming & Entertainment Desktop PC (amd Ryzen 7 5800x 8-Core, 16gb Ram, 1TB PCIe Ssd, Nvidia RTX 3070, Wifi, Bluetooth, 1xUSB 3.0, 3xHDMI, 3 Display Port (dp), Win 10 Home), Size:19.5 IN, Black</h1>
-        <p>$899.00</p>
+        <h1>Lemon Tea</h1>
+        <p>$1.25</p>
 
-        <a
-          href="https://wa.me/85512345678"
-          target="_blank"
-          class="buy-btn"
-          style="text-decoration: none; display: inline-block"
-        >
-          CHAT TO BUY
-        </a>
+        <button onclick="addToOrder('Lemon Tea', 1.25)" class="buy-btn">
+          ORDER
+        </button>
       </div>
+      <div class="moto-gallery product-card">
+        <div>
+          <img src="./tea lemon.jpg" alt="Moto" />
+        </div>
+        <h1>Lemon Tea</h1>
+        <p>$1.25</p>
 
+        <button onclick="addToOrder('Lemon Tea High', 1.25)" class="buy-btn">
+          ORDER
+        </button>
+      </div>
+      <div class="moto-gallery product-card">
+        <div>
+          <img src="./tea lemon.jpg" alt="Moto" />
+        </div>
+        <h1>Lemon Tea</h1>
+        <p>$1.25</p>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <!--text wrong-->
-<div id="intro-screen">
-    <div class="glitch-wrapper">
-        <h1 class="glitch-text">Wronging...</h1>
-        <p class="sub-text">Mer page mdg tt pg pyat ke bork</p>
-        
-
-        <button class="bypass-btn" onclick="closeError()">Click Enter to See item</button>
-    </div>
+        <button onclick="addToOrder('Lemon Tea High', 1.25)" class="buy-btn">
+          ORDER
+        </button>
+      </div>
     </main>
+
+    <!--intro-->
+    <div id="intro-screen">
+      <div class="glitch-wrapper">
+        <h1 class="glitch-text">Chill With Me</h1>
+        <p class="sub-text">Have a Good Day</p>
+        <button class="bypass-btn" onclick="closeError()">
+          Click Enter to Buy
+        </button>
+      </div>
+    </div>
+
+    <div id="cart-modal" class="modal">
+      <div
+        class="modal-content"
+        style="padding: 30px; border-radius: 20px; text-align: left"
+      >
+        <h2>Your Order</h2>
+        <div id="cart-items" style="margin: 20px 0"></div>
+        <hr style="border: 0.5px solid #333" />
+        <p style="font-size: 1.5rem; margin-top: 10px; color: var(--accent)">
+          Total: $<span id="cart-total">0.00</span>
+        </p>
+        <div class="nav-btns">
+          <button
+            onclick="checkout()"
+            class="buy-btn"
+            style="width: auto; margin-bottom: 10px"
+          >
+            Checkout (WhatsApp)
+          </button>
+          <button
+            onclick="closeCart()"
+            style="border: none; color: #888; text-decoration: underline"
+          >
+            Back to Shop
+          </button>
+        </div>
+      </div>
+    </div>
 
     <script src="./web.js"></script>
   </body>

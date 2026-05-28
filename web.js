@@ -117,15 +117,51 @@ function removeItem(index) {
 function checkout() {
   if (cart.length === 0) return alert("Your cart is empty!");
 
-  let message = "New Order from Website:%0A";
+  let whatsappMessage = "New Order from Website:%0A";
+  let telegramMessageContent = "New Order from Website:\n"; // Using \n for Telegram
   let total = 0;
-  cart.forEach((item) => {
-    message += `- ${item.name} (${item.sugar} sugar) ($${item.price.toFixed(2)})%0A`;
-    total += item.price;
-  });
-  message += `%0ATotal: $${total.toFixed(2)}`;
 
-  window.open(`https://wa.me/85512345678?text=${message}`, "_blank");
+  cart.forEach((item) => {
+    const itemDetails = `- ${item.name} (${item.sugar} sugar) ($${item.price.toFixed(2)})`;
+    whatsappMessage += itemDetails + "%0A";
+    telegramMessageContent += itemDetails + "\n"; // Append to Telegram message
+    total += item.price;
+    // Logs order details to your private backend database
+    trackOrder(item.name, item.price);
+  });
+
+  // Send to Admin's private WhatsApp
+  window.open(
+    `https://wa.me/85512345678?text=${whatsappMessage}%0ATotal: $${total.toFixed(2)}`,
+    "_blank",
+  );
+
+  // Send to Telegram Bot (via your backend)
+  sendOrderToTelegram(telegramMessageContent, total);
+
+  // Immediately clear the cart and UI to keep order details private
+  cart = [];
+  updateCartUI();
+  closeCart();
+}
+
+function sendOrderToTelegram(messageContent, orderTotal) {
+  // This function sends the order details to your backend, which then forwards it to Telegram.
+  // Your backend endpoint (/api/send-telegram-message) needs to be implemented.
+  const fullMessage = messageContent + `Total: $${orderTotal.toFixed(2)}`;
+  fetch("/api/send-telegram-message", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ message: fullMessage }),
+  })
+    .then((response) =>
+      response.ok
+        ? console.log("Order sent to Telegram bot successfully!")
+        : console.error("Failed to send order to Telegram bot."),
+    )
+    .catch((error) =>
+      console.error("Error sending order to Telegram bot:", error),
+    );
 }
 
 function openGallery() {
@@ -158,4 +194,20 @@ function closeError() {
   setTimeout(() => {
     intro.remove();
   }, 600);
+}
+function trackOrder(productName, price) {
+  // Send order data to your Java backend
+  fetch("/api/orders", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      productName: productName,
+      price: price,
+      customerName: "WhatsApp Customer", // You can expand this later with a small form
+    }),
+  })
+    .then((response) => console.log("Securely recorded to admin database"))
+    .catch((error) => console.error("Error logging order:", error));
 }

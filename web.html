@@ -186,17 +186,6 @@
           ORDER
         </button>
       </div>
-      <div class="moto-gallery product-card">
-        <div>
-          <img src="./tea lemon.jpg" alt="Moto" />
-        </div>
-        <h1>Lemon Tea</h1>
-        <p>$1.25</p>
-
-        <button onclick="addToOrder('Lemon Tea High', 1.25)" class="buy-btn">
-          ORDER
-        </button>
-      </div>
     </main>
 
     <!--intro-->
@@ -222,13 +211,12 @@
           Total: $<span id="cart-total">0.00</span>
         </p>
         <div class="nav-btns">
-          <button
-            onclick="checkout()"
-            class="buy-btn"
-            style="width: auto; margin-bottom: 10px"
-          >
-            Checkout (WhatsApp)
-          </button>
+          <h2>Ready to purchase?</h2>
+
+          <!-- Clicking this button instantly triggers send.php -->
+          <form action="./order.php" method="POST">
+            <button type="submit" class="order-btn">🛒 Order Now</button>
+          </form>
           <button
             onclick="closeCart()"
             style="border: none; color: #888; text-decoration: underline"

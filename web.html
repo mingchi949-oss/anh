@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>MinG developmant test</title>
-    <link rel="stylesheet" href="./style.css" />
+    <title>Wolcome to MING Coffee</title>
+    <link rel="stylesheet" href=".//webstyle.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap"
       rel="stylesheet"
@@ -16,21 +16,21 @@
   <body>
     <div id="main-shop">
       <nav class="main-nav">
-        <div class="logo">DEVELOP<span>BYMING</span></div>
+        <div class="logo">MING<span>COFFEE</span></div>
         <div class="logo">WEL<span>COME</span></div>
         <div class="social-links">
-          <button
-            onclick="showCart()"
+          <a
+            href="./order.html"
             class="social-icon"
             style="
               width: auto;
               padding: 0 15px;
               border-radius: 20px;
-              cursor: pointer;
+              text-decoration: none;
             "
           >
             <i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span>
-          </button>
+          </a>
           <a href="https://facebook.com" target="_blank" class="social-icon fb">
             <i class="fab fa-facebook-f"></i
           ></a>
@@ -51,6 +51,7 @@
       </nav>
       <div class="shop-layout">
         <aside class="brand-sidebar">
+          <!--search-->
           <h3>Search</h3>
           <div style="position: relative">
             <input
@@ -77,8 +78,6 @@
             >
           </div>
           <div id="brand-list-container">
-            <!--search-->
-
             <div
               class="brand-item"
               id="btn-Matcha"
@@ -101,16 +100,140 @@
               Tea
             </div>
           </div>
+
+          <!-- Shop Location Display -->
+          <div
+            style="
+              margin-top: 30px;
+              padding: 15px;
+              background: rgba(0, 255, 204, 0.05);
+              border-radius: 12px;
+              border: 1px solid rgba(0, 255, 204, 0.2);
+            "
+          >
+            <h4
+              style="
+                color: var(--accent);
+                margin-bottom: 8px;
+                font-size: 0.85rem;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                justify-content: center;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+              "
+            >
+              Our Shop Locations
+            </h4>
+            <div style="display: flex; flex-wrap: wrap; gap: 20px">
+              <div style="flex: 1; min-width: 180px; margin-bottom: 15px">
+                <p
+                  style="
+                    margin: 0;
+                    font-size: 0.9rem;
+                    color: #eee;
+                    line-height: 1.4;
+                  "
+                >
+                  123 Barista Street,<br />
+                  Coffee Neighborhood, City 12345
+                </p>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=123+Barista+Street+Coffee+City"
+                  target="_blank"
+                  style="
+                    color: var(--accent);
+                    font-size: 0.85rem;
+                    text-decoration: none;
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    margin-top: 5px;
+                    font-weight: bold;
+                  "
+                >
+                  <span>📍</span> View on Google Maps
+                </a>
+              </div>
+              <div style="flex: 1; min-width: 180px; margin-bottom: 15px">
+                <p
+                  style="
+                    margin: 0;
+                    font-size: 0.9rem;
+                    color: #eee;
+                    line-height: 1.4;
+                  "
+                >
+                  456 Espresso Ave,<br />
+                  Brew Town, City 67890
+                </p>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=456+Espresso+Ave+Brew+Town"
+                  target="_blank"
+                  style="
+                    color: var(--accent);
+                    font-size: 0.85rem;
+                    text-decoration: none;
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    margin-top: 5px;
+                    font-weight: bold;
+                  "
+                >
+                  <span>📍</span> View on Google Maps
+                </a>
+              </div>
+              <div style="flex: 1; min-width: 180px; margin-bottom: 15px">
+                <p
+                  style="
+                    margin: 0;
+                    font-size: 0.9rem;
+                    color: #eee;
+                    line-height: 1.4;
+                  "
+                >
+                  789 Latte Lane,<br />
+                  Foam District, City 11223
+                </p>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=789+Latte+Lane+Foam+District"
+                  target="_blank"
+                  style="
+                    color: var(--accent);
+                    font-size: 0.85rem;
+                    text-decoration: none;
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    margin-top: 5px;
+                    font-weight: bold;
+                  "
+                >
+                  <span>📍</span> View on Google Maps
+                </a>
+              </div>
+            </div>
+          </div>
         </aside>
       </div>
     </div>
-
+    <div class="marquee-container">
+      <div class="cool-marquee">
+        MING COFFEE • PREMIUM ROAST • FRESH BREW • BEST QUALITY • SINCE 2024 •
+        MING COFFEE • PREMIUM ROAST • FRESH BREW • BEST QUALITY •&nbsp; MING
+        COFFEE • PREMIUM ROAST • FRESH BREW • BEST QUALITY • SINCE 2024 • MING
+        COFFEE • PREMIUM ROAST • FRESH BREW • BEST QUALITY •&nbsp;
+      </div>
+    </div>
     <!--here-->
     <main>
       <div class="moto-gallery product-card">
         <!-- Added class "img-container" here -->
         <div class="img-container">
-          <span class="badge hot-sale">HOT</span>
+          <span class="badge discount-badge">20% OFF</span>
+          <span class="badge hot-sale">BEST SELLER</span>
           <img src="./Matcha.jpg" alt="Moto" />
         </div>
 
@@ -123,7 +246,8 @@
       </div>
 
       <div class="moto-gallery product-card">
-        <div>
+        <div class="img-container">
+          <span class="badge hot-sale">BEST SELLER</span>
           <img src="./matcha stt.jpg" alt="Moto" />
         </div>
 
@@ -137,7 +261,7 @@
       <div class="moto-gallery product-card">
         <!-- Added class "img-container" here -->
         <div class="img-container">
-          <span class="badge hot-sale">HOT</span>
+          <span class="badge discount-badge">5% OFF</span>
           <img src="./ice latte.jpg" alt="Moto" />
         </div>
 
@@ -149,17 +273,14 @@
         </button>
       </div>
       <div class="moto-gallery product-card">
-        <div>
+        <div class="img-container">
           <img src="./americano coffee.jpg" alt="Moto" />
         </div>
 
         <h1>Ice Americano coffee</h1>
         <p>$1.25</p>
 
-        <button
-          onclick="addToOrder('Ice Americano coffee', 1.25)"
-          class="buy-btn"
-        >
+        <button onclick="addToOrder('Americano coffee', 1.25)" class="buy-btn">
           ORDER
         </button>
       </div>
@@ -177,7 +298,7 @@
       </div>
       <div class="moto-gallery product-card">
         <div>
-          <img src="./tea lemon.jpg" alt="Moto" />
+          <img src="./leemon tea.jpg" alt="Moto" />
         </div>
         <h1>Lemon Tea</h1>
         <p>$1.25</p>
@@ -187,45 +308,6 @@
         </button>
       </div>
     </main>
-
-    <!--intro-->
-    <div id="intro-screen">
-      <div class="glitch-wrapper">
-        <h1 class="glitch-text">Chill With Me</h1>
-        <p class="sub-text">Have a Good Day</p>
-        <button class="bypass-btn" onclick="closeError()">
-          Click Enter to Buy
-        </button>
-      </div>
-    </div>
-
-    <div id="cart-modal" class="modal">
-      <div
-        class="modal-content"
-        style="padding: 30px; border-radius: 20px; text-align: left"
-      >
-        <h2>Your Order</h2>
-        <div id="cart-items" style="margin: 20px 0"></div>
-        <hr style="border: 0.5px solid #333" />
-        <p style="font-size: 1.5rem; margin-top: 10px; color: var(--accent)">
-          Total: $<span id="cart-total">0.00</span>
-        </p>
-        <div class="nav-btns">
-          <h2>Ready to purchase?</h2>
-
-          <!-- Clicking this button instantly triggers send.php -->
-          <form action="./order.php" method="POST">
-            <button type="submit" class="order-btn">🛒 Order Now</button>
-          </form>
-          <button
-            onclick="closeCart()"
-            style="border: none; color: #888; text-decoration: underline"
-          >
-            Back to Shop
-          </button>
-        </div>
-      </div>
-    </div>
 
     <script src="./web.js"></script>
   </body>

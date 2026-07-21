@@ -11,7 +11,7 @@ img {
 body {
   background-image:
     linear-gradient(rgba(139, 225, 225, 0.5), rgba(224, 220, 220, 0.5)),
-    url(/html/bg2.avif);
+    url(bg2.avif);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -31,7 +31,6 @@ nav {
 .logo {
   margin: 15px;
   padding: 10px;
-  float: left;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -46,7 +45,7 @@ nav {
   right: -5px;
   bottom: -5px;
   border-radius: 25px;
-  background: linear-gradient(45deg);
+  background: linear-gradient(45deg, #ffeb3b, #ff9800);
   z-index: -1;
   animation: glow 3s ease-in-out infinite alternate;
 }
@@ -167,7 +166,7 @@ nav {
   font-size: 45px;
   position: relative;
   z-index: 1;
-  text-shadow: 0 4px 20px rgb(249, 249, 249);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   background: linear-gradient(45deg, #2f2e2b, #6b501b, #e2890b);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -517,9 +516,10 @@ nav {
   fill: #fff;
 }
 .end p {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
   color: rgb(254, 251, 251);
   text-align: center;
   padding: 20px;
   margin-top: 30px;
+  border-radius: 10px;
 }
